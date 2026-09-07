@@ -71,12 +71,18 @@
           intelligence, computer vision and AI-assisted security.
         </p>
 
-        <!-- CTA: CV downloads. Update the href if you rename the PDF files. -->
+        <!-- CTA: CV downloads.
+             These link to the raw compiled PDFs in the dedicated Overleaf-synced
+             CV repositories, so they ALWAYS serve the latest version — each repo
+             auto-recompiles the LaTeX to PDF on every push via GitHub Actions.
+             To change the target, update the raw URLs below (no local PDF needed).
+             Note: cross-origin GitHub links don't honor the `download` attribute,
+             so the browser opens/downloads the PDF natively from GitHub. -->
         <div class="hero-cta">
-          <a class="btn btn-primary" href="Esteban_Armas_CV_All_Include-3.pdf" download>
+          <a class="btn btn-primary" href="https://github.com/esteban-armas/Academic_CV-Overleaf/raw/main/Esteban_Armas_CV/cv.pdf" target="_blank" rel="noopener">
             ⬇ Academic CV
           </a>
-          <a class="btn btn-primary" href="esteban_armas_modern_cv-3.pdf" download>
+          <a class="btn btn-primary" href="https://github.com/esteban-armas/Modern_CV-Overleaf/raw/main/esteban_armas_modern_cv.pdf" target="_blank" rel="noopener">
             ⬇ Industry CV
           </a>
           <a class="btn btn-outline" href="#contact">Get in touch</a>
@@ -509,10 +515,10 @@
           <div class="proj-period">Ongoing</div>
         </div>
 
-        <div class="project-card" data-status="active">
+        <div class="project-card" data-status="completed">
           <div class="proj-head">
             <span class="proj-name">CYLCOMED</span>
-            <span class="status-pill status-active">Active</span>
+            <span class="status-pill status-completed">Completed</span>
           </div>
           <div class="proj-prog">Horizon Europe · 101095542</div>
           <div class="proj-desc">Cybersecurity toolbox for connected medical devices.</div>
