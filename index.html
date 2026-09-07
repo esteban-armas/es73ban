@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     Esteban Armas Vega — Personal Website
+     Pure static HTML/CSS/JS. No build tools. Works on GitHub Pages as-is.
+
+     HOW TO MAINTAIN (quick reference — see README.md for full guide):
+       • Add a new JOB          -> copy a  <div class="timeline-item">  block  (SECTION: EXPERIENCE)
+       • Add a new DEGREE       -> copy a  <div class="edu-card">       block  (SECTION: EDUCATION)
+       • Add a new PUBLICATION  -> copy a  <div class="pub-card">       block  (SECTION: PUBLICATIONS)
+       • Add a new PROJECT      -> copy a  <div class="project-card">   block  (SECTION: PROJECTS)
+       • Add a new SKILL        -> add a   <span class="badge">…</span>       (SECTION: SKILLS)
+       • Add a whole NEW SECTION-> see the "ADD A NEW SECTION HERE" comment near the bottom
+     ===================================================================== -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esteban Armas Vega — Cybersecurity Researcher</title>
+  <meta name="description" content="Esteban Alejandro Armas Vega — Cybersecurity Researcher, Computer Vision Engineer, Software Engineer and Professor. Threat Intelligence, Applied AI and EU R&D projects." />
+  <meta name="author" content="Esteban Alejandro Armas Vega" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Esteban Armas Vega — Cybersecurity Researcher" />
+  <meta property="og:description" content="Cybersecurity Researcher · Threat Intelligence · Computer Vision · Applied AI · EU R&D Projects · Professor" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+</head>
+<body>
+
+  <!-- =================================================================
+       NAVBAR
+       Add / rename links here. href must match a section id below.
+       ================================================================= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="logo">EA<span>V</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- =================================================================
+       SECTION: HERO
+       ================================================================= -->
+  <header class="hero" id="hero">
+    <div class="container">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Madrid, Spain · Available for academic &amp; industry roles</p>
+        <h1>Hi, I'm <span class="name-accent">Esteban Armas Vega</span></h1>
+        <div class="typewriter-wrap">
+          <span id="typewriter"></span><span class="cursor">&nbsp;</span>
+        </div>
+        <p class="hero-tagline">
+          Cybersecurity Researcher with 10+ years across applied research, software
+          development and European R&amp;D projects — specialized in cyber threat
+          intelligence, computer vision and AI-assisted security.
+        </p>
+
+        <!-- CTA: CV downloads. Update the href if you rename the PDF files. -->
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="Esteban_Armas_CV_All_Include-2.pdf" download>
+            ⬇ Academic CV
+          </a>
+          <a class="btn btn-primary" href="esteban_armas_modern_cv-2.pdf" download>
+            ⬇ Industry CV
+          </a>
+          <a class="btn btn-outline" href="#contact">Get in touch</a>
+        </div>
+
+        <!-- Social links -->
+        <div class="hero-socials">
+          <a href="https://github.com/esteban-armas" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/esteban-armas-vega/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.84 3.7A8 8 0 0 1 12 8a8 8 0 0 1 7.16 5.2L24 9.5z"/></svg>
+          </a>
+          <a href="mailto:esteban.armas@outlook.com" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M12 12.7 1 5.2V4c0-.6.4-1 1-1h20c.6 0 1 .4 1 1v1.2l-11 7.5zM12 15 23 7.5V20c0 .6-.4 1-1 1H2c-.6 0-1-.4-1-1V7.5L12 15z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="assets/profile.jpg" alt="Portrait of Esteban Armas Vega" />
+      </div>
+    </div>
+  </header>
+
+  <!-- =================================================================
+       SECTION: ABOUT
+       ================================================================= -->
+  <section class="about" id="about">
+    <div class="container reveal">
+      <h2 class="section-title">About <span>Me</span></h2>
+      <div class="accent-bar"></div>
+      <p class="about-text">
+        I'm a cybersecurity researcher with over a decade of experience spanning applied
+        research, software engineering and European R&amp;D projects. My work focuses on
+        cyber threat intelligence, threat analysis, secure information sharing, OSINT-driven
+        enrichment and AI-assisted cybersecurity. I combine academic depth — a PhD in
+        multimedia forensics and computer vision — with hands-on engineering across Python,
+        MISP, machine learning and cloud-native tooling. I've delivered technical work
+        packages, prototypes, publications and proposals in multi-partner international
+        consortia, and I teach in a Master's programme in Cybersecurity.
+      </p>
+
+      <!-- Stats. Edit the numbers as your metrics grow. -->
+      <div class="stats">
+        <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Years experience</div></div>
+        <div class="stat-card"><div class="stat-num">310</div><div class="stat-label">Citations</div></div>
+        <div class="stat-card"><div class="stat-num">9</div><div class="stat-label">h-index</div></div>
+        <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label">EU projects</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION: EXPERIENCE  (vertical timeline)
+       To ADD A JOB: copy one <div class="timeline-item"> … </div> block,
+       paste it at the TOP (most recent first) and edit the fields.
+       ================================================================= -->
+  <section class="experience" id="experience">
+    <div class="container reveal">
+      <h2 class="section-title">Work <span>Experience</span></h2>
+      <div class="accent-bar"></div>
+      <div class="timeline">
+
+        <!-- === timeline-item START === -->
+        <div class="timeline-item">
+          <div class="role">Cybersecurity Researcher (Half-Time)</div>
+          <div class="company">Universidad Internacional de La Rioja (UNIR)</div>
+          <span class="period">Dec 2024 – Present · Spain</span>
+          <ul>
+            <li>Helps define UNIR's cybersecurity research strategy and runs hands-on experimentation.</li>
+            <li>Publishes academic results and co-writes competitive public/private research grant proposals.</li>
+            <li>Develops a new European cybersecurity academic programme; teaches AI, Cybersecurity and Programming.</li>
+            <li>Supervises Master's theses and contributes to curriculum design.</li>
+          </ul>
+        </div>
+        <!-- === timeline-item END === -->
+
+        <!-- === timeline-item START === -->
+        <div class="timeline-item">
+          <div class="role">Researcher</div>
+          <div class="company">ATOS Spain / Eviden — Research &amp; Innovation</div>
+          <span class="period">Nov 2020 – Present · Madrid, Spain</span>
+          <ul>
+            <li>Designs and develops cybersecurity solutions for EU R&amp;D projects (CTI enrichment, intelligence sharing, security automation).</li>
+            <li>Builds secure information exchange for sensitive cyber data using MISP.</li>
+            <li>Implements frameworks, APIs and analytics pipelines that enrich threat intelligence with OSINT and contextual data.</li>
+            <li>Contributes to deliverables, architecture, partner coordination and Horizon Europe proposals.</li>
+          </ul>
+        </div>
+        <!-- === timeline-item END === -->
+
+        <!-- === timeline-item START === -->
+        <div class="timeline-item">
+          <div class="role">Researcher</div>
+          <div class="company">Complutense University of Madrid — GASS Research Group</div>
+          <span class="period">Nov 2016 – Feb 2022 · Madrid, Spain</span>
+          <ul>
+            <li>R&amp;D in EU-funded projects: multimedia forensics, SDN security, malware &amp; phishing detection, applied ML.</li>
+            <li>Developed computer vision algorithms for image and video forgery detection.</li>
+            <li>Contributed to a multimedia forensic analysis platform and AI-based attack-pattern detection in SDNs.</li>
+            <li>Participated in European proposal preparation and collaborative technical reporting.</li>
+          </ul>
+        </div>
+        <!-- === timeline-item END === -->
+
+        <!-- === timeline-item START === -->
+        <div class="timeline-item">
+          <div class="role">Developer</div>
+          <div class="company">ESRI Geosystems</div>
+          <span class="period">Nov 2015 – Oct 2016 · Spain</span>
+          <ul>
+            <li>Built web and mobile applications combining ESRI technologies with open-source tools.</li>
+            <li>Custom solutions in Python, JavaScript, Swift, Objective-C, C#, Spring and MongoDB.</li>
+            <li>Explored integration of geospatial platforms with open-source technologies.</li>
+          </ul>
+        </div>
+        <!-- === timeline-item END === -->
+
+        <!-- === timeline-item START === -->
+        <div class="timeline-item">
+          <div class="role">IT Manager</div>
+          <div class="company">Armas Vega Asociados S.A.</div>
+          <span class="period">Sep 2009 – Sep 2014 · Quito, Ecuador</span>
+          <ul>
+            <li>Led software development and network deployment for inventory, accounting and enterprise systems.</li>
+            <li>Designed and managed office network infrastructure, servers and web-based project management apps.</li>
+          </ul>
+        </div>
+        <!-- === timeline-item END === -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION: EDUCATION
+       To ADD A DEGREE: copy one <div class="edu-card"> … </div> block.
+       ================================================================= -->
+  <section class="education" id="education">
+    <div class="container reveal">
+      <h2 class="section-title">Education</h2>
+      <div class="accent-bar"></div>
+      <div class="edu-grid">
+
+        <!-- === edu-card START === -->
+        <div class="edu-card">
+          <div class="degree">PhD in Computer Science</div>
+          <div class="inst">Complutense University of Madrid</div>
+          <div class="year">Nov 2020</div>
+          <div class="thesis">Thesis: "Passive Techniques for Detecting Manipulations in Digital Images"</div>
+        </div>
+        <!-- === edu-card END === -->
+
+        <!-- === edu-card START === -->
+        <div class="edu-card">
+          <div class="degree">M.Sc. in Computer Science</div>
+          <div class="inst">Complutense University of Madrid</div>
+          <div class="year">Oct 2016</div>
+          <div class="thesis">Thesis: "Tools for Dynamic Analysis of Vulnerabilities in Web Applications"</div>
+        </div>
+        <!-- === edu-card END === -->
+
+        <!-- === edu-card START === -->
+        <div class="edu-card">
+          <div class="degree">B.Sc. in Informatics Engineering</div>
+          <div class="inst">Technological University of Havana "José Antonio Echeverría"</div>
+          <div class="year">Jul 2009</div>
+          <div class="thesis">Thesis: "Software Management and Search System 'BuSo'"</div>
+        </div>
+        <!-- === edu-card END === -->
+
+        <!-- === edu-card START === -->
+        <div class="edu-card">
+          <div class="degree">Master Scholarship</div>
+          <div class="inst">Secretariat of Higher Education of Ecuador</div>
+          <div class="year">Sep 2014 · 2 years · $50,000</div>
+          <div class="thesis">Competitive scholarship awarded for graduate studies abroad.</div>
+        </div>
+        <!-- === edu-card END === -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION: SKILLS
+       To ADD A SKILL: add a <span class="badge">Name</span> inside a group.
+       To ADD A GROUP: copy a <div class="skill-group"> … </div> block.
+       ================================================================= -->
+  <section class="skills" id="skills">
+    <div class="container reveal">
+      <h2 class="section-title">Technical <span>Skills</span></h2>
+      <div class="accent-bar"></div>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3><span class="dot"></span>Programming</h3>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">Java</span><span class="badge">JavaScript</span>
+            <span class="badge">Ruby</span><span class="badge">Swift</span><span class="badge">SQL</span>
+            <span class="badge">C#</span><span class="badge">PHP</span><span class="badge">C</span>
+            <span class="badge">C++</span><span class="badge">Maude</span><span class="badge">Prolog</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3><span class="dot"></span>Machine Learning</h3>
+          <div class="badges">
+            <span class="badge">PyTorch</span><span class="badge">TensorFlow</span><span class="badge">Keras</span>
+            <span class="badge">Scikit-learn</span><span class="badge">Caffe</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3><span class="dot"></span>DevOps &amp; Cloud</h3>
+          <div class="badges">
+            <span class="badge">Git</span><span class="badge">Docker</span><span class="badge">Kubernetes</span>
+            <span class="badge">Jenkins</span><span class="badge">Prometheus</span><span class="badge">Grafana</span>
+            <span class="badge">Linux</span><span class="badge">Windows</span><span class="badge">macOS</span>
+            <span class="badge">AWS</span><span class="badge">Azure</span><span class="badge">GCP</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3><span class="dot"></span>Security &amp; CTI</h3>
+          <div class="badges">
+            <span class="badge">MISP</span><span class="badge">YARA</span><span class="badge">Cuckoo Sandbox</span>
+            <span class="badge">OSINT tools</span><span class="badge">CTI workflows</span><span class="badge">Secure data sharing</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3><span class="dot"></span>Languages</h3>
+          <div class="badges">
+            <span class="badge">Spanish (native)</span><span class="badge">English (C1)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION: PUBLICATIONS
+       Sorted by citation count (highest first). Total citations & h-index
+       shown in the sub-title. To ADD A PUBLICATION: copy one
+       <article class="pub-card"> … </article> block and set data-citations
+       so the sort-by-citations still works.
+       ================================================================= -->
+  <section class="publications" id="publications">
+    <div class="container reveal">
+      <h2 class="section-title">Scientific <span>Publications</span></h2>
+      <div class="accent-bar"></div>
+      <p class="section-subtitle">
+        310 total citations · h-index 9 · i10-index 9 —
+        <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View full profile on Google Scholar ↗</a>
+      </p>
+
+      <div class="pub-grid" id="pubGrid">
+
+        <!-- === pub-card START (data-citations drives the ordering) === -->
+        <article class="pub-card" data-citations="65">
+          <div class="pub-title">A Shared Cyber Threat Intelligence Solution for SMEs</div>
+          <div class="pub-meta">M. van Haastrecht, <b>E.A. Armas Vega</b>, M. Spruit</div>
+          <div class="pub-meta"><span class="pub-venue">Electronics</span> · 2021</div>
+          <div class="pub-footer">
+            <a href="https://doi.org/10.3390/electronics10232913" target="_blank" rel="noopener">DOI ↗</a>
+            <span class="cite-badge">📈 <b>65</b>&nbsp;citations</span>
+          </div>
+        </article>
+        <!-- === pub-card END === -->
+
+        <article class="pub-card" data-citations="57">
+          <div class="pub-title">Copy-Move Forgery Detection Technique Based on Discrete Cosine Transform Blocks Features</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">Neural Computing and Applications</span> · 2021</div>
+          <div class="pub-footer">
+            <a href="https://doi.org/10.1007/s00521-020-05433-1" target="_blank" rel="noopener">DOI ↗</a>
+            <span class="cite-badge">📈 <b>57</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="48">
+          <div class="pub-title">Passive Image Forgery Detection Based on the Demosaicing Algorithm and JPEG Compression</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">IEEE Access</span> · 2020</div>
+          <div class="pub-footer">
+            <a href="https://doi.org/10.1109/ACCESS.2020.2964516" target="_blank" rel="noopener">DOI ↗</a>
+            <span class="cite-badge">📈 <b>48</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="36">
+          <div class="pub-title">Digital Images Authentication Technique Based on DWT, DCT and Local Binary Patterns</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">Sensors</span> · 2018</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>36</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="25">
+          <div class="pub-title">Ransomware Automatic Data Acquisition Tool</div>
+          <div class="pub-meta">A. Lopez Vivar, <b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">IEEE Access</span> · 2018</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>25</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="21">
+          <div class="pub-title">Analyzing the Traffic of Penetration Testing Tools with an IDS</div>
+          <div class="pub-meta">F. Román, <b>E.A. Armas Vega</b>, L.J. García Villalba</div>
+          <div class="pub-meta"><span class="pub-venue">The Journal of Supercomputing</span> · 2016</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>21</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="17">
+          <div class="pub-title">Image Tampering Detection by Estimating Interpolation Patterns</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">Future Generation Computer Systems</span> · 2020</div>
+          <div class="pub-footer">
+            <a href="https://doi.org/10.1016/j.future.2020.01.016" target="_blank" rel="noopener">DOI ↗</a>
+            <span class="cite-badge">📈 <b>17</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="16">
+          <div class="pub-title">Benchmarking of Pentesting Tools</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">19th Int. Conf. on Information Technology, Paris</span> · 2017</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>16</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="2">
+          <div class="pub-title">Uso de Características en la Identificación de la Fuente de Imágenes de Dispositivos Móviles</div>
+          <div class="pub-meta">J. Rosales Corripio, <b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">RECSI</span> · 2016</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>—</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="1">
+          <div class="pub-title">Herramientas de Análisis Dinámico de Aplicaciones Web con Snort</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b>, F. Román, L.J. García Villalba</div>
+          <div class="pub-meta"><span class="pub-venue">COMTEL, Lima</span> · 2016</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>—</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="1">
+          <div class="pub-title">Poster: Evaluating Black-Box Testing Tools</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">IEEE EuroS&amp;P, Paris</span> · 2017</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>—</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+        <article class="pub-card" data-citations="1">
+          <div class="pub-title">Poster: Internet Forensic Platform for Tracking the Money Flow of Financially-Motivated Malware</div>
+          <div class="pub-meta"><b>E.A. Armas Vega</b> et al.</div>
+          <div class="pub-meta"><span class="pub-venue">IEEE EuroS&amp;P, Paris</span> · 2017</div>
+          <div class="pub-footer">
+            <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener">View ↗</a>
+            <span class="cite-badge">📈 <b>—</b>&nbsp;citations</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION: PROJECTS  (EU research projects)
+       Filter tabs: All / Active / Completed. To ADD A PROJECT: copy one
+       <div class="project-card"> … </div> block. Set data-status to
+       "active" or "completed" so the filter tabs work.
+       ================================================================= -->
+  <section class="projects" id="projects">
+    <div class="container reveal">
+      <h2 class="section-title">Research <span>Projects</span></h2>
+      <div class="accent-bar"></div>
+      <p class="section-subtitle">European R&amp;D projects (Horizon Europe, Horizon 2020, Digital Europe &amp; COST).</p>
+
+      <div class="proj-tabs">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="active">Active</button>
+        <button class="tab-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <div class="proj-grid" id="projGrid">
+
+        <!-- === project-card START === -->
+        <div class="project-card" data-status="active">
+          <div class="proj-head">
+            <span class="proj-name">DIGITAL4Security</span>
+            <span class="status-pill status-active">Active</span>
+          </div>
+          <div class="proj-prog">Digital Europe Programme · 101123430</div>
+          <div class="proj-desc">European Masters Programme in Cybersecurity Management and Data Sovereignty.</div>
+          <div class="proj-period">Oct 2023 – Sep 2027 · <a href="https://miniurl.cl/DIGITAL4Security" target="_blank" rel="noopener">Website ↗</a></div>
+        </div>
+        <!-- === project-card END === -->
+
+        <div class="project-card" data-status="active">
+          <div class="proj-head">
+            <span class="proj-name">CYDERCO</span>
+            <span class="status-pill status-active">Active</span>
+          </div>
+          <div class="proj-prog">Threat Intelligence Sharing</div>
+          <div class="proj-desc">Threat intelligence sharing, enrichment, contextualization and sighting support.</div>
+          <div class="proj-period">Ongoing</div>
+        </div>
+
+        <div class="project-card" data-status="active">
+          <div class="proj-head">
+            <span class="proj-name">CYLCOMED</span>
+            <span class="status-pill status-active">Active</span>
+          </div>
+          <div class="proj-prog">Horizon Europe · 101095542</div>
+          <div class="proj-desc">Cybersecurity toolbox for connected medical devices.</div>
+          <div class="proj-period">Dec 2022 – Nov 2025 · <a href="https://cordis.europa.eu/project/id/101095542" target="_blank" rel="noopener">CORDIS ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">ELECTRON</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 101021936</div>
+          <div class="proj-desc">Resilient and self-healed electrical power nanogrid.</div>
+          <div class="proj-period">Oct 2021 – Sep 2024 · <a href="https://cordis.europa.eu/project/id/101021936" target="_blank" rel="noopener">CORDIS ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">HEROES</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 101021801</div>
+          <div class="proj-desc">Technologies against child sexual exploitation and human trafficking.</div>
+          <div class="proj-period">Dec 2021 – Nov 2024 · <a href="https://cordis.europa.eu/project/id/101021801" target="_blank" rel="noopener">CORDIS ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">GEIGER</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 883588</div>
+          <div class="proj-desc">Cybersecurity support and awareness tools for SMEs.</div>
+          <div class="proj-period">Jun 2020 – Nov 2022 · <a href="https://project.cyber-geiger.eu" target="_blank" rel="noopener">Website ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">CyberSANE</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 833683</div>
+          <div class="proj-desc">Cyber security incident handling for European Critical Infrastructures.</div>
+          <div class="proj-period">Sep 2019 – Aug 2022 · <a href="https://www.cybersane-project.eu" target="_blank" rel="noopener">Website ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">CONCORDIA</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 830927</div>
+          <div class="proj-desc">Cyber security competence for research and innovation.</div>
+          <div class="proj-period">Jan 2019 – Dec 2022 · <a href="https://www.concordia-h2020.eu" target="_blank" rel="noopener">Website ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">CyberSec4Europe</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 830929</div>
+          <div class="proj-desc">Cybersecurity Network of Competence Centres for Europe.</div>
+          <div class="proj-period">Feb 2019 – Jul 2022 · <a href="https://cybersec4europe.eu" target="_blank" rel="noopener">Website ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">CRYPTACUS</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">COST Action IC1403</div>
+          <div class="proj-desc">Cryptanalysis of Ubiquitous Computing Systems.</div>
+          <div class="proj-period">Dec 2014 – Nov 2018</div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">RAMSES</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 700326</div>
+          <div class="proj-desc">Internet Forensic Platform for Tracking Financially-Motivated Malware.</div>
+          <div class="proj-period">Sep 2016 – Sep 2019 · <a href="https://ramses2020.eu" target="_blank" rel="noopener">Website ↗</a></div>
+        </div>
+
+        <div class="project-card" data-status="completed">
+          <div class="proj-head">
+            <span class="proj-name">SELFNET</span>
+            <span class="status-pill status-completed">Completed</span>
+          </div>
+          <div class="proj-prog">Horizon 2020 · 671672</div>
+          <div class="proj-desc">Self-Organized Network Management in Virtualized and Software Defined Networks.</div>
+          <div class="proj-period">Jul 2015 – Jun 2018</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION: CONTACT
+       ================================================================= -->
+  <section class="contact" id="contact">
+    <div class="container reveal">
+      <h2 class="section-title">Get in <span>Touch</span></h2>
+      <div class="accent-bar"></div>
+      <p class="section-subtitle">Open to academic collaborations and industry opportunities.</p>
+
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <a class="contact-item" href="mailto:esteban.armas@outlook.com">
+            <span class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 12.7 1 5.2V4c0-.6.4-1 1-1h20c.6 0 1 .4 1 1v1.2l-11 7.5zM12 15 23 7.5V20c0 .6-.4 1-1 1H2c-.6 0-1-.4-1-1V7.5L12 15z"/></svg></span>
+            <span><span class="ci-label">Email</span><br><span class="ci-value">esteban.armas@outlook.com</span></span>
+          </a>
+          <a class="contact-item" href="tel:+34697827576">
+            <span class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1l-2.2 2z"/></svg></span>
+            <span><span class="ci-label">Phone</span><br><span class="ci-value">+34 697 827 576</span></span>
+          </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/esteban-armas-vega/" target="_blank" rel="noopener">
+            <span class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45z"/></svg></span>
+            <span><span class="ci-label">LinkedIn</span><br><span class="ci-value">in/esteban-armas-vega</span></span>
+          </a>
+          <div class="contact-item">
+            <span class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
+            <span><span class="ci-label">Location</span><br><span class="ci-value">Madrid, Spain</span></span>
+          </div>
+        </div>
+
+        <!-- Simple mailto contact form (no backend needed — opens the mail client). -->
+        <form class="contact-form" id="contactForm">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       ADD A NEW SECTION HERE
+       1. Copy a <section id="your-id"> … </section> block above.
+       2. Add a matching <li><a href="#your-id">Label</a></li> in the NAVBAR.
+       3. Wrap content in <div class="container reveal"> for the fade-in.
+       ================================================================= -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="foot-socials">
+        <a href="https://github.com/esteban-armas" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/esteban-armas-vega/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45z"/></svg></a>
+        <a href="https://scholar.google.es/citations?user=97nDYkUAAAAJ&hl=es" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.84 3.7A8 8 0 0 1 12 8a8 8 0 0 1 7.16 5.2L24 9.5z"/></svg></a>
+      </div>
+      <p>© <span id="year"></span> Esteban Alejandro Armas Vega · Built as a static site, served on GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

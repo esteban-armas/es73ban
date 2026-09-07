@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="121.24" viewBox="0 0 140 121.24">
+  <!-- Repeating hexagon / circuit grid pattern used as the hero background.
+       Tile it via CSS background-repeat. Stroke color is cyan-tinted. -->
+  <defs>
+    <pattern id="hex" width="140" height="121.24" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#1f6f82" stroke-width="1.1" opacity="0.55">
+        <polygon points="35,0 105,0 140,60.62 105,121.24 35,121.24 0,60.62"/>
+        <polygon points="105,0 175,0 210,60.62 175,121.24 105,121.24 70,60.62"/>
+        <polygon points="-35,0 35,0 70,60.62 35,121.24 -35,121.24 -70,60.62"/>
+      </g>
+      <g fill="#00d4ff" opacity="0.25">
+        <circle cx="35" cy="0" r="1.6"/>
+        <circle cx="105" cy="0" r="1.6"/>
+        <circle cx="0" cy="60.62" r="1.6"/>
+        <circle cx="140" cy="60.62" r="1.6"/>
+        <circle cx="35" cy="121.24" r="1.6"/>
+        <circle cx="105" cy="121.24" r="1.6"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="140" height="121.24" fill="url(#hex)"/>
+</svg>
